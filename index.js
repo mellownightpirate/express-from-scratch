@@ -24,12 +24,21 @@ app.get('/api/friends', (req, res) => {
     res.status(200).json(friends)
 })
 
+app.get('/hello', (req, res) => {
+    const { pal } = req.query
+    res.send(`<h1>Hello, &{pal}</h1>`)
+})
+
 // make me a POST that has the desired name somewhere in the request
 // send back???
 
 app.post('/api/friends', (req, res) => {
-    console.log(req.body)
     const { friend } = req.body
+//  THE DIFFERENT WYS CLIENT CAN SEND INFO TO SERVER
+    // const { headers } = req
+    // const { params } = req
+    // const { query } = req
+    // console.log(query);
     friends.push(friend)
     res.status(201).json(friend)
 })
